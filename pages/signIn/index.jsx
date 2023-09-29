@@ -4,7 +4,7 @@ import styles from './styles'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig';
 
-export default function Login({ navigation }) {
+export default function SignIn({ navigation }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

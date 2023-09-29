@@ -1,39 +1,25 @@
-import React, {useState, useEffect} from 'react'
-import {View, Text, Button} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, Button } from 'react-native'
 import styles from './styles'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-export default function Home({navigation, route}){
-    const [cont, setCont] = useState(0)
-    const [cont2, setCont2] = useState(0)
+export default function Home() {
 
-    useEffect(()=>{setCont2(cont2+1)}, [cont])
+    const [codigo, setCodigo] = useState('')
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const usuario = user.email
+            setCodigo(usuario)
+        } else {
 
-    return(
+        }
+    });
+
+    return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.txt}>Página Home</Text>
-            </View>
-            <View>
-                <Text>Contador 1: {cont}</Text>
-            </View>
-            <View>
-                <Text>Contador 2: {cont2}</Text>
-            </View>
-            <View>
-                <Button
-                    title='Contador1'
-                    onPress={()=>setCont(cont+1)}
-                    />
-            </View>
-            <View>
-                <Button
-                    title='Contador2'
-                    onPress={()=>setCont2(cont2+1)}
-                />
-            </View>
-
-
-
-        </View>       
+            <Text style={styles.txt}>Página Home</Text>
+            <Text>{codigo}</Text>
+        </View>
     )
 }

@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather } from "@expo/vector-icons"
-import Login from "./pages/login"
+import SignIn from "./pages/signIn"
 import Home from './pages/home'
 import SignUp from './pages/signUp'
 import Create from "./pages/create"
@@ -29,8 +29,8 @@ function MyTabs() {
 
         >
             <Tab.Screen
-                name="Login"
-                component={Login}
+                name="SignIn"
+                component={SignIn}
                 options={{
                     tabBarStyle: { display: 'none' },
                     tabBarIcon: ({ size, color }) => (
@@ -104,8 +104,8 @@ export default function Routers() {
                 />
 
                 <Pilha.Screen
-                    name="Login"
-                    component={Login}
+                    name="SignIn"
+                    component={SignIn}
                     options={{ headerShown: false }}
                 />
 
